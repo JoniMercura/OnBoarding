@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  web:
+    image: ghcr.io/mercura-aps/frontend-template:${VERSION:-stable}
+    expose:
+      - 80
+    container_name: template-${VERSION:-stable}
+    restart: always
+    stop_signal: sigterm
+    networks:
+      - nginx-proxy
+networks:
+  nginx-proxy:
+    external: true
